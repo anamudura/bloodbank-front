@@ -1,14 +1,16 @@
 import {  useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import {Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function Login() {
    
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [user, setUser] = useState();
 
     const navigateToRegister = () => {
       // 👇️ navigate to /contacts
@@ -19,8 +21,6 @@ function Login() {
       // 👇️ navigate to /
       navigate('/');
     };
-
-
     async function login(event) {
         event.preventDefault();
         try {
@@ -29,7 +29,9 @@ function Login() {
             password: password,
             }).then((res) => 
             {
-             console.log(res.data);
+              console.log(res.data);
+              const currentUser = res.data;
+              setUser(res.data);
              
              if (res.data.message == "Email not exits") 
              {
@@ -40,10 +42,22 @@ function Login() {
                 
                 navigate('/home');
              } 
-              else 
-             { 
-                alert("Incorrect Email and Password not match");
+              else if(currentUser.roles[0].name == "ROLE_ADMIN")
+                { 
+                 navigate("/admin");
+                 
+                }
+                else if(currentUser.roles[0].name == "ROLE_DOCTOR")
+                { 
+                    navigate("/doctor", {state:{id: currentUser.id}});
+                    
              }
+               
+                else if(currentUser.roles[0].name == "ROLE_DONATOR")
+             { 
+              // const { id } = currentUser.id;
+               navigate('/donator', {state:{id : currentUser.id}})
+                }
           }, fail => {
            console.error(fail); // Error!
   });
@@ -65,7 +79,7 @@ function Login() {
        <div>
             <div class="container">
             <div class="row">
-                <h2>Login</h2>
+                <h2>BLOOD BANK LOGIN</h2>
              <hr/>
              </div>
 
