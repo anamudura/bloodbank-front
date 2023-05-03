@@ -7,6 +7,7 @@ function ShowLocations()
 {
   const navigate = useNavigate();  
   const [locations, setLocations] = useState([])
+  const { id } = useParams();
     useEffect(() => { 
         loadLocations();
     });
@@ -40,7 +41,7 @@ function ShowLocations()
                   <td>
                   <Link
                       className="btn btn-primary mx-2"
-                      to={`/appointment`}
+                      to={`/appointment/${id}`}
                     >
                       Make appointment here
                     </Link>

@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import {useParams } from 'react-router-dom';
 
 import axios from "axios";
 
@@ -8,10 +9,11 @@ function Appointment() {
 
   const [bloodtype, setBloodType] = useState("");
   const [prog, setProg] = useState("");
+  const { id } = useParams();
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post("http://localhost:8080/appointment", {
+      await axios.post(`http://localhost:8080/appointment/${id}`, {
         bloodtype: bloodtype,
         prog: prog,
       });

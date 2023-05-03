@@ -36,7 +36,13 @@ function DonatorPage()
                     >
                       Edit your account
             </Link>
-            <button type="submit" class="btn btn-primary" onClick={navigateToLocations}>See the locations of all blood banks</button>
+            {/* <button type="submit" class="btn btn-primary" onClick={navigateToLocations}>See the locations of all blood banks</button> */}
+            <Link
+                      className="btn btn-outline-primary mx-2"
+                      to={`/locations/${id}`}
+                    >
+                      See the locations of all blood banks
+            </Link>
             
         </div>
     );
