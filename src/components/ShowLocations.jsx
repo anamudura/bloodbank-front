@@ -45,6 +45,12 @@ function ShowLocations()
                     >
                       Make appointment here
                     </Link>
+                    <Link
+                      className="btn btn-outline-primary mx-2"
+                      to={`/stats/${index+1}`}
+                    >
+                      Download stats for this clinic
+            </Link>
                   </td>
                 </tr>
               ))}

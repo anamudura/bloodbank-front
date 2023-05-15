@@ -44,6 +44,7 @@ function DonatorPage()
                       See the locations of all blood banks
             </Link>
             
+            
         </div>
     );
 }
