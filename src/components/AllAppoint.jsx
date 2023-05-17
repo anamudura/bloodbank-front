@@ -52,6 +52,15 @@ function AllAppoint() {
       alert(err);
     }
   };
+  const denyapp = async (event, id) => {
+    event.preventDefault();
+    try {
+      await axios.post(`http://localhost:8080/allappd/${id}`, {});
+      alert("Appointment Denied Successfully");
+    } catch (err) {
+      alert(err);
+    }
+  };
   const pagesCount = Math.ceil(appointments.length / pageSize);
   const pages = [...Array(pagesCount).keys()];
   return (
@@ -72,6 +81,7 @@ function AllAppoint() {
                 <td>{app.bloodtype}</td>
                 <td>{app.prog}</td>
                 <button onClick={(event) => confirmApp(event, app.id)}>Confirm</button>
+                <button onClick={(event) => denyapp(event, app.id)}>Decline</button>
               </tr>
             ))}
           </tbody>
