@@ -27,6 +27,7 @@ function ShowLocations()
                 <th scope="col">Nume</th>
                 <th scope="col">Inceput</th>
                 <th scope="col">Final</th>
+                <th scope="col">Adresa</th>
               </tr>
             </thead>
             <tbody>
@@ -38,10 +39,11 @@ function ShowLocations()
                   <td>{user.name}</td>
                   <td>{user.inceput}</td>
                   <td>{user.sfarsit}</td>
+                  <td>{user.adresa}</td>
                   <td>
                   <Link
                       className="btn btn-primary mx-2"
-                      to={`/appointment/${id}`}
+                      to={`/appointment/${id}/${index+1}`}
                     >
                       Make appointment here
                     </Link>

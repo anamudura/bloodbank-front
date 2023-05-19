@@ -40,8 +40,8 @@ function DonatorAccount() {
               Details of user id : {user.id}
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
-                  <b>Email:</b>
-                  {user.email}
+                  <b>Name:</b>
+                  {user.nume}
                 </li>
                 <li className="list-group-item">
                   <b>Location:</b>

@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect,useState } from "react";
 import {useParams } from 'react-router-dom';
 
 import axios from "axios";
@@ -9,11 +9,13 @@ function Appointment() {
 
   const [bloodtype, setBloodType] = useState("");
   const [prog, setProg] = useState("");
-  const { id } = useParams();
+  const [donator, setDon] = useState("");
+  const [location, setLoc] = useState("");
+  const { id,index } = useParams();
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/appointment/${id}`, {
+      await axios.post(`http://localhost:8080/appointment/${id}/${index}`, {
         bloodtype: bloodtype,
         prog: prog,
       });
@@ -23,7 +25,21 @@ function Appointment() {
       alert(err);
     }
   }
+  useEffect(() => {
+    loadUser();
+    loadLoc();
+  }, []);
+  const loadUser = async () => {
+    const result = await axios.get(`http://localhost:8080/edituser/${id}`);
+    setDon(result.data);
+  };
 
+  const loadLoc = async () => {
+    const result = await axios.get(`http://localhost:8080/getloc/${index}`);
+    console.log(result.data)
+    setLoc(result.data);
+  };
+  
   return (
     <div>
       <div class="container mt-4" >
@@ -53,6 +69,14 @@ function Appointment() {
               />
 
             </div>
+            <li className="list-group-item">
+                  <b>Name for the appointment:</b>
+                  {donator.nume}
+            </li>
+            <li className="list-group-item">
+                  <b>Location of the appointment:</b>
+                  {location.name}
+                </li>
 
             <button type="submit" class="btn btn-primary mt-4" onClick={save} >Save</button>
 

@@ -27,7 +27,7 @@ export default function EditUser() {
   const onSubmit = async (e) => {
     e.preventDefault();
     await axios.post(`http://localhost:8080/editdon/${id}`, user);
-    navigate("/account");
+    navigate(`/account/${id}`);
   };
 
   const loadUser = async () => {

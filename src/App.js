@@ -32,7 +32,7 @@ function App() {
           <Route path="/doctor" element={<DoctorPage />} />
           <Route path="/donator" element={<DonatorPage />} />
           <Route path="/users" element={<DonatorAction />} />
-          <Route path="/appointment/:id" element={<Appointment />} />
+          <Route path="/appointment/:id/:index" element={<Appointment />} />
           <Route path="/locations/:id" element={<ShowLocations />} />
           <Route path="/account/:id" element={<DonatorAccount />} />
           <Route path="/viewuser/:id" element={<ViewDoctor />} />
