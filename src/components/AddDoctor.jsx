@@ -17,7 +17,7 @@ function AddDoctor() {
     async function save(event) {
         event.preventDefault();
         try {
-          await axios.post("http://localhost:8080/registerdoc", {
+          await axios.post("http://localhost:8080/admin/registerdoc", {
           email: email,
           location: location,
           nume: nume,

@@ -8,7 +8,7 @@ function DeleteDonator()
     const { id } = useParams();
     const deleteAcc = async() =>
     {
-        await axios.post(`http://localhost:8080/users/${id}`);
+        await axios.post(`http://localhost:8080/donator/users/${id}`);
         navigate("/");
     }
     

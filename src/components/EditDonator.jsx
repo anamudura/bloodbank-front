@@ -26,12 +26,12 @@ export default function EditUser() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await axios.post(`http://localhost:8080/editdon/${id}`, user);
+    await axios.post(`http://localhost:8080/donator/editdon/${id}`, user);
     navigate(`/account/${id}`);
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/edituser/${id}`);
+    const result = await axios.get(`http://localhost:8080/donator/edituser/${id}`);
     setUser(result.data);
   };
 

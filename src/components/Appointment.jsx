@@ -15,7 +15,7 @@ function Appointment() {
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/appointment/${id}/${index}`, {
+      await axios.post(`http://localhost:8080/donator/appointment/${id}/${index}`, {
         bloodtype: bloodtype,
         prog: prog,
       });
@@ -30,12 +30,12 @@ function Appointment() {
     loadLoc();
   }, []);
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/edituser/${id}`);
+    const result = await axios.get(`http://localhost:8080/donator/edituser/${id}`);
     setDon(result.data);
   };
 
   const loadLoc = async () => {
-    const result = await axios.get(`http://localhost:8080/getloc/${index}`);
+    const result = await axios.get(`http://localhost:8080/donator/getloc/${index}`);
     console.log(result.data)
     setLoc(result.data);
   };

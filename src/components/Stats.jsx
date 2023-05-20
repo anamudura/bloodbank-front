@@ -10,7 +10,7 @@ function Stats()
   const [end, setEnd] = useState("");
   const handleExportPdf = async () => {
     try {
-      const result = await axios.get(`http://localhost:8080/stats/${id}`, {
+      const result = await axios.get(`http://localhost:8080/donator/stats/${id}`, {
         params: {
           start: start,
           end: end,

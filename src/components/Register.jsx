@@ -17,7 +17,7 @@ function Register() {
     async function save(event) {
         event.preventDefault();
         try {
-          await axios.post("http://localhost:8080/register", {
+          await axios.post("http://localhost:8080/donator/register", {
           email: email,
           location: location,
           nume: nume,

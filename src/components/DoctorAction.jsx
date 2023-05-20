@@ -13,12 +13,12 @@ function DoctorAction()
     
     const loadDoctors = async() =>
         {
-        const result = await axios.get("http://localhost:8080/users");
+        const result = await axios.get("http://localhost:8080/admin/doctors");
         setDoctors(result.data);
 
     }
     const deleteUser = async (id) => {
-        await axios.post(`http://localhost:8080/users/${id}`);
+        await axios.post(`http://localhost:8080/admin/doctors/${id}`);
         loadDoctors();
       };
       const navigateToRegisterDoc = () => {

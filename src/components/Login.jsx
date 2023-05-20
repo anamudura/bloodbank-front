@@ -13,12 +13,10 @@ function Login() {
   const [user, setUser] = useState();
 
     const navigateToRegister = () => {
-      // 👇️ navigate to /contacts
       navigate('/register');
     };
   
     const navigateHome = () => {
-      // 👇️ navigate to /
       navigate('/');
     };
     async function login(event) {

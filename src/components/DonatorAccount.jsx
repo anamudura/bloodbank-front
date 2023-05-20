@@ -22,7 +22,7 @@ function DonatorAccount() {
   };
   const loadDonator = async () => {
     console.log("Id din Account" + id);
-    const result = await axios.get(`http://localhost:8080/don/${id}`);
+    const result = await axios.get(`http://localhost:8080/donator/don/${id}`);
     setUser(result.data);
 
   }

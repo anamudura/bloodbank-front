@@ -13,7 +13,7 @@ function ShowLocations()
     });
     
     const loadLocations = async () => {
-        const result = await axios.get("http://localhost:8080/locations");
+        const result = await axios.get("http://localhost:8080/donator/locations");
         setLocations(result.data);
 
     }
